@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/',function (req,res) {
   res.send('1760404294')
-  console.log("ooooo");
+  console.log("oo");
 })
 
 /* For Facebook Validation */ // (==1==) Verify req.query['hub.mode'] & req.query['hub.verify_token']
