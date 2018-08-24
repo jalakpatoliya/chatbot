@@ -13,6 +13,7 @@ app.get('/',function (req,res) {
 
 /* For Facebook Validation */ // (==1==) Verify req.query['hub.mode'] & req.query['hub.verify_token']
 app.get('/webhook', (req, res) => {
+  console.log("get request for /webhook  req.query::",req.query);
   if (req.query['hub.mode'] && req.query['hub.verify_token'] === 'tuxedo_cat') {
     res.status(200).send(req.query['hub.challenge']);
   } else {
@@ -22,7 +23,7 @@ app.get('/webhook', (req, res) => {
 
 /* Handling all messenges */
 app.post('/webhook', (req, res) => {
-  console.log(req.body);
+  console.log("post request for /webhook req.body::",req.body);
   if (req.body.object === 'page') {
     req.body.entry.forEach((entry) => {
       entry.messaging.forEach((event) => {
