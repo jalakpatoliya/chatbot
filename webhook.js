@@ -47,13 +47,7 @@ function sendMessage(event) {
     method: 'POST',
     json: {
       recipient: {id: sender},
-      message: {text: "hello"}
-    }
-  }, function (error, response) {
-    if (error) {
-        console.log('Error sending message: ', error);
-    } else if (response.body.error) {
-        console.log('Error: ', response.body.error);
+      message: {text: text}
     }
   });
 }
