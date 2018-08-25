@@ -21,11 +21,11 @@ app.get('/webhook', (req, res) => {
   }
 });
 
-/* Handling all messenges */
+/* Handling all messenges */ // Msnr send messsages to post req. to say what to do with them.
 app.post('/webhook', (req, res) => {
   console.log("post request for /webhook req.body::",req.body);
   if (req.body.object === 'page') {
-    req.body.entry.forEach((entry) => {
+    req.body.entry.forEach((entry) => {  //// Iterates over each entry - there may be multiple if batched
       entry.messaging.forEach((event) => {
         if (event.message && event.message.text) {
           sendMessage(event);
@@ -47,7 +47,7 @@ function sendMessage(event) {
     method: 'POST',
     json: {
       recipient: {id: sender},
-      message: {text: text}
+      message: {text: "hello"}
     }
   }, function (error, response) {
     if (error) {
