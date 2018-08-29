@@ -17,10 +17,12 @@
   },
   "homepage": "https://github.com/jalakpatoliya/chatbot#readme",
   "dependencies": {
+    "apiai": "^4.0.3",
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
     "npm": "^6.4.0",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "supervisor": "^0.12.0"
   }
 }
