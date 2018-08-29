@@ -46,13 +46,16 @@ function sendMessage(event) {
   });
 
   apiai.on('response',(response)=>{
+
+    let aiText = response.result.fulfillment.speech;
+
     request({
       url: 'https://graph.facebook.com/v2.6/me/messages',
       qs: {access_token: 'EAAgOiVZAq7EkBAGqyMaxEeTVMoGFZAALwOikOWVKU3oUUOa9XNbgcyDZCnhSaNdbkXLBtKj7F2ePk1Lb8O8Y8UsoBILrJ9jaxZBLd0NoXyZCnHDkIXoXHDiZCneQfZBCjgWTM2Y8XQNZCiFQQzqeaZB72XrONOs7BshAXnfc6XCJJNAZDZD'},
       method: 'POST',
       json: {
         recipient: {id: sender},
-        message: {text: response}
+        message: {text: aiText}
       }
     }, function (error, response) {
       if (error) {
